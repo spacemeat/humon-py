@@ -30,11 +30,17 @@ def doShellCommand(cmd):
 
 
 if __name__ == "__main__":
+    # TODO: Associate humon-py version with humon version
+    clibVersion = 'v1.0.0'
+
     if os.path.exists('./clib'):
-        doShellCommand("cd clib && git pull")
+        os.chdir('clib')
+        doShellCommand("git pull")
     else:
-        doShellCommand("git clone https://github.com/spacemeat/humon ./clib; cd clib")
+        doShellCommand("git clone https://github.com/spacemeat/humon ./clib")
+        os.chdir('clib')
     
-    # NEXT: git checkout versionnumber
-    doShellCommand("cd ..")
+    doShellCommand(f"git checkout {clibVersion}")
+    os.chdir('..')
+
     doShellCommand("python3 ./setup.py build_ext --inplace")
