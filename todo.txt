@@ -6,3 +6,7 @@ Use python memory management
 Trove_findNodesByCommentContaining and others aren't using kwargs
 Do basic test suite hitting all function points
 Version in humon module from include/humon/version.h
+
+readTheDocs, and MkDocs for markdown documentation
+use blessings for terminal colors?
+tox for testing different dists of python

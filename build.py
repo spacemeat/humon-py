@@ -33,14 +33,8 @@ if __name__ == "__main__":
     # TODO: Associate humon-py version with humon version
     clibVersion = 'v1.0.0'
 
-    if os.path.exists('./clib'):
-        os.chdir('clib')
-        doShellCommand("git pull")
-    else:
-        doShellCommand("git clone https://github.com/spacemeat/humon ./clib")
-        os.chdir('clib')
-    
-    doShellCommand(f"git checkout {clibVersion}")
-    os.chdir('..')
+    if not os.path.exists('./clib'):
+        err = doShellCommand(f"git clone https://github.com/spacemeat/humon --config advice.detachedHead=false --branch {clibVersion} --quiet ./clib")
+        if err: raise RuntimeError(f'Could not clone humon. Error code: {err}')
 
-    doShellCommand("python3 ./setup.py build_ext --inplace")
+    exit(doShellCommand("python3 ./setup.py build_ext --inplace"))

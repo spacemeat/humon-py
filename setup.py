@@ -2,14 +2,22 @@
 
 from setuptools import setup, Extension
 
+with open ('README.md', 'r') as f:
+      long_desc = f.read()
+
 setup(name="humon",
-      version="0.0.0",
+      version='0.0.1',
+      description='A Python wrapper over humon\'s C API, for reading Humon token streams.',
+      long_description = long_desc,
+      long_description_content_type = 'text/markdown',
+      author='Trevor Schrock',
+      author_email='spacemeat@gmail.com',
+      url='https://github.com/spacemeat/humon-py',
+
       packages=["humon"],
       ext_package="humon",
       ext_modules=[Extension("humon",
                              include_dirs = ['./clib/include/humon', './clib/src'],
-                             #libraries = ['humon'],
-                             #library_dirs = ['./humon/build/bin'],
                              extra_compile_args = ['-ggdb3', '-O0'],
                              sources = ["./clib/src/ansiColors.c",
                                         "./clib/src/encoding.c",
@@ -26,5 +34,18 @@ setup(name="humon",
                                         "./humon/cpkg/token-py.c",
                                         "./humon/cpkg/trove-py.c",
                                         "./humon/cpkg/utils.c"])
-                   ])
-      
+                   ],
+      classifiers=[
+            "Programming Language :: Python :: 3",
+            "License :: OSI Approved :: MIT License",
+            "Operating System :: POSIX :: Linux",
+            "Programming Language :: C++",
+            "Topic :: Software Development"
+      ],
+      extras_require = {
+            'dev': ['check-manifest', 'twine']
+      },
+      python_requires='>=3.8'
+)
+
+
