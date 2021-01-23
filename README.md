@@ -1,8 +1,6 @@
 # humon-py
-CPython extension module for Humon.
-# Humon.py
 
-This is a Python3 package for reading Humon token streams.
+This is a Python3 package for reading [Humon|https://github.com/spacemeat/humon] token streams.
 
 # Installing humon-py
 
@@ -17,7 +15,7 @@ $ pip install humon
 ```python
 from humon import humon
 t = humon.Trove.fromString('{foo:bar}')
-print (t['foo'])
+print (t.root['foo'])
 ```
 
 # Developing humon-py

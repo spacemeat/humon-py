@@ -39,7 +39,6 @@ setup(name="humon",
             "Programming Language :: Python :: 3",
             "License :: OSI Approved :: MIT License",
             "Operating System :: POSIX :: Linux",
-            "Programming Language :: C++",
             "Topic :: Software Development"
       ],
       extras_require = {
