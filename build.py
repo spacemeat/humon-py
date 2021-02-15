@@ -31,7 +31,7 @@ def doShellCommand(cmd):
 
 if __name__ == "__main__":
     # TODO: Associate humon-py version with humon version
-    clibVersion = 'v1.0.0'
+    clibVersion = 'v1.0.1'
 
     if not os.path.exists('./clib'):
         err = doShellCommand(f"git clone https://github.com/spacemeat/humon --config advice.detachedHead=false --branch {clibVersion} --quiet ./clib")
