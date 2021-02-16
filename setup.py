@@ -6,7 +6,7 @@ with open ('README.md', 'r') as f:
       long_desc = f.read()
 
 setup(name="humon",
-      version='0.0.2',
+      version='0.0.3',
       description='A Python wrapper over humon\'s C API, for reading Humon token streams.',
       long_description = long_desc,
       long_description_content_type = 'text/markdown',
