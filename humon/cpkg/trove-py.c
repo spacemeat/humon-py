@@ -157,7 +157,7 @@ static PyObject * Trove_fromString(PyTypeObject * type, PyObject * args, PyObjec
 
     huTrove const * trove = NULL;
     huDeserializeOptions params;
-    huInitDeserializeOptions(& params, HU_ENCODING_UTF8, false, tabSize, NULL);
+    huInitDeserializeOptions(& params, HU_ENCODING_UTF8, false, tabSize, NULL, HU_BUFFERMANAGEMENT_COPYANDOWN);
     huEnumType_t error = huDeserializeTroveN(& trove, string, stringLen, & params, HU_ERRORRESPONSE_STDERRANSICOLOR);
     switch(error)
     {
@@ -196,7 +196,7 @@ static PyObject * Trove_fromFile(PyTypeObject * type, PyObject * args, PyObject 
 
     huTrove const * trove = NULL;
     huDeserializeOptions params;
-    huInitDeserializeOptions(& params, HU_ENCODING_UTF8, false, tabSize, NULL);
+    huInitDeserializeOptions(& params, HU_ENCODING_UTF8, false, tabSize, NULL, HU_BUFFERMANAGEMENT_COPYANDOWN);
     huEnumType_t error = huDeserializeTroveFromFile(& trove, string, & params, HU_ERRORRESPONSE_STDERRANSICOLOR);
     switch(error)
     {

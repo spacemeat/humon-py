@@ -6,12 +6,12 @@ python ./build.py
 
 
 To create a source distribution in ./dist:
-. .venv/humon-py/bin/activate
+. venv/bin/activate
 modify ./setup.py to find the version number and update it if needed.
 python setup.py sdist
 
 
 To upload an sdist to testpypi:
-. .venv/humon-py/bin/activate
+. venv/bin/activate
 python -m twine upload --repository testpypi dist/*
 python -m twine upload dist/*
